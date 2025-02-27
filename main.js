@@ -43,7 +43,7 @@ $http.beforeRequest = function(options){
   }),
   uni.$showMsg = function(){
     uni.showToast({
-      title:"数据请求成功！",
+      title:"数据加载失败！",
       duration:1500,
       icon:"none"
     })
