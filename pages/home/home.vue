@@ -1,5 +1,8 @@
 <template>
   <view>
+    <view class="search-box">
+      <my-search @click="gotoSearch"></my-search>
+    </view>
    <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="30000" :circular="true">
       <swiper-item v-for="(item,index) in swiperList" :key="index">
          <navigator class="swiper-item" :url="'/subpkg/good_details/good_details?goods_id=' + item.goods_id">
@@ -81,6 +84,11 @@
           url:'/pages/cate/cate'
         })
       }
+    },
+    gotoSearch(){
+      uni.navigateTo({
+          url: '/subpkg/search/search'
+        })
     }
     }
   }
@@ -120,5 +128,13 @@ swiper {
  .floor-img-box {
    display: flex;
    padding-left: 10rpx;
+ }
+ .search-box {
+   // 设置定位效果为“吸顶”
+   position: sticky;
+   // 吸顶的“位置”
+   top: 0;
+   // 提高层级，防止被轮播图覆盖
+   z-index: 999;
  }
 </style>
